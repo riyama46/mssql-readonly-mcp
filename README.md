@@ -57,6 +57,7 @@ npm run test:db   # integration tests against the demo database
 
 1. Open Claude Desktop → **Settings** → **Developer** → **Edit Config**. That opens `claude_desktop_config.json`
    (Windows: `%APPDATA%\Claude\`, macOS: `~/Library/Application Support/Claude/`).
+   The Microsoft Store version on Windows keeps it elsewhere, under `%LOCALAPPDATA%\Claude-Data\`; the **Edit Config** button always opens the right file.
 2. Add the server. Use absolute paths; Claude Desktop does not start it from this folder.
 
 ```json
