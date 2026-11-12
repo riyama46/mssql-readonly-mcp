@@ -1,0 +1,30 @@
+# Local demo database only. By setting ACCEPT_EULA=Y you accept the SQL Server
+# licence terms: https://go.microsoft.com/fwlink/?linkid=857698
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?copy .env.example to .env first}
+    ports:
+      - "127.0.0.1:${MSSQL_PORT:-1433}:1433"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -C -b -Q 'SELECT 1'"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  # One-shot: (re)builds HrDemo and the read-only login, then exits.
+  seed:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+      MSSQL_PASSWORD: ${MSSQL_PASSWORD:?copy .env.example to .env first}
+    volumes:
+      - ./db:/seed:ro
+    entrypoint: ["/bin/bash", "-c", "/opt/mssql-tools18/bin/sqlcmd -S db -U sa -P \"$$MSSQL_SA_PASSWORD\" -C -b -v READER_PASSWORD=\"$$MSSQL_PASSWORD\" -i /seed/seed.sql"]
+    restart: "no"
