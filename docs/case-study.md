@@ -1,6 +1,30 @@
 # Case study draft for rifaldiradya.com
 
-Paste into the admin project form. Demo project: no client, no production numbers.
+Demo project: no client, no production numbers.
+
+## Admin form values
+
+| Field | EN | ID |
+| --- | --- | --- |
+| Title | Read-only SQL Server connector for Claude | Konektor SQL Server read-only untuk Claude |
+| Group | AI tools | AI tools |
+| Meta line | MCP server · HR demo data | MCP server · data HR demo |
+| Side | 2026 | 2026 |
+| Short description | HR staff ask in plain language. Claude answers from SQL Server and cannot change a single row. | Staf HR bertanya dengan bahasa biasa. Claude menjawab dari SQL Server dan tidak bisa mengubah satu baris pun. |
+| What it is | A small MCP server between Claude and SQL Server. It gives Claude three read-only tools, so HR questions get answered from live data without anyone writing SQL. | Server MCP kecil di antara Claude dan SQL Server. Claude mendapat tiga tool read-only, jadi pertanyaan HR dijawab dari data langsung tanpa perlu menulis SQL. |
+| What I did 1 | Built three tools: list tables, describe a table, run one SELECT. | Membuat tiga tool: daftar tabel, struktur tabel, jalankan satu SELECT. |
+| What I did 2 | Blocked writes twice: a SELECT-only database login plus a query check. | Memblokir write dua lapis: login database khusus SELECT dan pemeriksaan query. |
+| What I did 3 | Added a row limit and a query timeout so one bad query cannot slow the server. | Menambah batas baris dan timeout agar satu query buruk tidak membebani server. |
+| What I did 4 | Logged every call: the SQL, allowed or blocked, rows, duration. | Mencatat setiap panggilan: SQL-nya, diizinkan atau diblokir, jumlah baris, durasi. |
+| What I did 5 | Generated a fictional HR database with 60 employees, attendance, leave and payroll. | Membuat database HR fiktif berisi 60 karyawan, absensi, cuti, dan payroll. |
+| Stack | TypeScript, Node.js, MCP, SQL Server, Docker | (same) |
+| Status | Open-source demo, 2026 | Demo open-source, 2026 |
+| Case action | No button | |
+| Code repository URL | https://github.com/riyama46/mssql-readonly-mcp | |
+| Visual type | Number card | |
+| Number / Caption | 0 / rows Claude can change | 0 / baris yang bisa diubah Claude |
+
+## Long form (for a blog post or proposal)
 
 **Title:** Read-only SQL Server connector for Claude (MCP)
 
