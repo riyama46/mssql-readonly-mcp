@@ -82,6 +82,8 @@ npm run test:db   # integration tests against the demo database
 }
 ```
 
+   On Windows, `install-claude-desktop.ps1` does this step for you. Quit Claude Desktop first: while it runs it can overwrite the file and drop your entry.
+
 3. Quit Claude Desktop completely and open it again. The three tools appear under the tools icon.
 
 Things to ask:
