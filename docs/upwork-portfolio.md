@@ -33,7 +33,11 @@ Model Context Protocol (MCP), Claude, Microsoft SQL Server, TypeScript, Node.js,
 
 https://github.com/riyama46/mssql-readonly-mcp
 
-**Suggested images**
+**Cover image (ready)**
+
+`docs/images/demo.png`, 1600 × 1000. Built from real tool output and real audit log lines; it is not a screenshot of Claude Desktop.
+
+**Optional extra screenshots (take by hand in Claude Desktop)**
 
 1. Claude Desktop answering "late arrivals by department" with the tool calls visible.
 2. Claude refusing "delete September payroll", next to the `blocked` line in `audit.log`.

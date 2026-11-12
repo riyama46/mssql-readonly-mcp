@@ -2,6 +2,8 @@
 
 A read-only [Model Context Protocol](https://modelcontextprotocol.io) server for SQL Server. It lets Claude answer questions from a database without being able to change it.
 
+![An allowed query with its result, and a refused DELETE with its audit log line](docs/images/demo.png)
+
 Ships with a fictional HR database (employees, attendance, leave, payroll) so you can try it in five minutes. All demo data is generated; no real person or company is in it.
 
 ## Tools
